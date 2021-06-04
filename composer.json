@@ -1,0 +1,16 @@
+{
+    "name": "lukasz/sms-eagle",
+    "description": "PHP class for SMS Eagle Api's.",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Lukasz Przezdziek",
+            "email": "l.przezdziek@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {"SMSEagle\\": "src/"}
+    },
+    "require": {}
+}

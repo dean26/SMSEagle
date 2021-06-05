@@ -22,7 +22,7 @@ $sms_eagle->setMethod(new HttpApi());
 $message = new SMS('phone_number', 'message'); 
 
 if($sms_eagle->send($message)){
-    echo "Message to has been sent successfully!";
+    echo "Message has been sent successfully!";
 } else {
     echo "Send message failed!";
 }
@@ -52,7 +52,7 @@ $message = new MMS('phone_number', 'message', [
 ]); 
 
 if($sms_eagle->send($message)){
-    echo "Message to has been sent successfully!";
+    echo "Message has been sent successfully!";
 } else {
     echo "Send message failed!";
 }

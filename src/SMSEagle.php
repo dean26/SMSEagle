@@ -7,7 +7,6 @@ use SMSEagle\Message\Message;
 
 class SMSEagle
 {
-
     protected string $host;
     protected Auth $auth;
     protected Method $method;

@@ -16,7 +16,12 @@ class LoginPassword extends Auth
 
     public function getUrlParams(): string
     {
-        return "?login={$this->login}&pass={$this->password}";
+        return "login={$this->login}&pass={$this->password}";
+    }
+
+    public function getArrayParams(): array
+    {
+        return ['login' => $this->login, 'pass' => $this->password];
     }
     
 }

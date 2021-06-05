@@ -14,7 +14,11 @@ class Token extends Auth
 
     public function getUrlParams(): string
     {
-        return "?access_token={$this->token}";
+        return "access_token={$this->token}";
     }
-    
+
+    public function getArrayParams(): array
+    {
+        return ['access_token' => $this->token];
+    }
 }

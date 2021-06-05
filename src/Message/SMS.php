@@ -19,11 +19,18 @@ class SMS extends Message
         return "&to={$this->to}&message={$this->message}";
     }
 
-    public function send(string $url):bool
+    public function getArrayParams()
+    {
+        return ['to' => $this->to, 'message' => $this->message];
+    }
+
+    public function send(string $url, array $params):bool
     {
         $cURLConnection = curl_init();
 
-        curl_setopt($cURLConnection, CURLOPT_URL, $url . $this->getUrlParams());
+        $url_params = http_build_query(array_merge($params, $this->getArrayParams()));
+
+        curl_setopt($cURLConnection, CURLOPT_URL, "{$url}?{$url_params}");
         curl_setopt($cURLConnection, CURLOPT_RETURNTRANSFER, true);
 
         $response = curl_exec($cURLConnection);

@@ -2,7 +2,7 @@
 
 namespace SMSEagle\Method;
 
-class HttpApi extends Method
+class JsonRPC extends Method
 {
 
     protected array $params;
@@ -14,7 +14,7 @@ class HttpApi extends Method
 
     public function getSendSmsUrl(): string
     {
-        return '/http_api/send_sms';
+        return '/jsonrpc/sms';
     }
 
     public function getUrlParams(): string

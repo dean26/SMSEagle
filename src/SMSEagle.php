@@ -29,17 +29,16 @@ class SMSEagle
 
     public function getBaseUrl():string
     {
-        return "http://{$this->host}";
+        return "http://{$this->host}{$this->method->getSendSmsUrl()}";
     }
 
-    public function getFullUrl():string
+    public function getAllParamsArray():array
     {
-        return $this->getBaseUrl() . $this->method->getSendSmsUrl() . 
-            $this->auth->getUrlParams() . $this->method->getParams();
+        return array_merge($this->auth->getArrayParams(), $this->method->getArrayParams());
     }
 
     public function send(Message $message):bool
     {
-        return $message->send($this->getFullUrl());
+        return $message->send($this->getBaseUrl(), $this->getAllParamsArray());
     }
 }

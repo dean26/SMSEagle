@@ -8,7 +8,7 @@
         "email": "l.przezdziek@gmail.com"
     }],
     "autoload": {
-        "psr-4": { "SMSEagle": "src" }
+        "psr-0": { "SMSEagle": "src" }
     },
     "require": {
         "php": "7.4.0",

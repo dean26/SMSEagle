@@ -1,5 +1,5 @@
 {
-    "name": "lukasz/sms-eagle",
+    "name": "dean26/sms-eagle",
     "description": "PHP class for SMS Eagle Api's.",
     "type": "library",
     "license": "MIT",

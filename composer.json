@@ -8,12 +8,10 @@
         "email": "l.przezdziek@gmail.com"
     }],
     "autoload": {
-        "psr-0": { "SMSEagle": "src" }
+        "psr-4": { "SMSEagle\\": "src/" }
     },
     "require": {
-        "php": "7.4.0",
+        "php": "^7.4.0",
         "ext-curl": "*"
-    },
-    "minimum-stability": "dev",
-    "prefer-stable": true
+    }
 }

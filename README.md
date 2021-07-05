@@ -44,6 +44,7 @@ use SMSEagle\Message\MMS;
 $sms_eagle = new SMSEagle(new Token('your_token'));
 
 $sms_eagle->setHost('modem_host');
+$sms_eagle->setPort(80);
 $sms_eagle->setMethod(new JsonRPC());
 
 $message = new MMS('phone_number', 'message', [

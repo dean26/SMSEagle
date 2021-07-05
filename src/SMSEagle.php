@@ -8,6 +8,7 @@ use SMSEagle\Message\Message;
 class SMSEagle
 {
     protected string $host;
+    protected string $port;
     protected Auth $auth;
     protected Method $method;
 
@@ -26,6 +27,18 @@ class SMSEagle
         $this->method = $method;
     }
 
+    public function getPort()
+    {
+        return $this->port;
+    }
+
+    public function setPort($port)
+    {
+        $this->port = $port;
+
+        return $this;
+    }
+
     public function getBaseUrl():string
     {
         return "http://{$this->host}{$this->method->getSendSmsUrl()}";
@@ -38,6 +51,7 @@ class SMSEagle
 
     public function send(Message $message):bool
     {
-        return $message->send($this->getBaseUrl(), $this->getAllParamsArray());
+        return $message->send($this->getBaseUrl(), $this->getPort(), $this->getAllParamsArray());
     }
+
 }

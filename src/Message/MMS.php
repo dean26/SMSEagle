@@ -26,7 +26,7 @@ class MMS extends Message
         return ['message_type' => 'mms', 'response' => 'extended', 'to' => $this->to, 'message' => $this->message, 'attachments' => [$this->attachments]];
     }
 
-    public function send(string $url, array $params):bool
+    public function send(string $url, string $port, array $params):bool
     {
         $cURLConnection = curl_init();
 
@@ -36,6 +36,7 @@ class MMS extends Message
         ];
 
         curl_setopt($cURLConnection, CURLOPT_URL, $url);
+        curl_setopt($cURLConnection, CURLOPT_PORT, $port);
         curl_setopt($cURLConnection, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($cURLConnection, CURLOPT_HTTPHEADER, array('Content-Type:application/json'));
         curl_setopt($cURLConnection, CURLOPT_POSTFIELDS, json_encode($all_params, JSON_UNESCAPED_SLASHES));

@@ -24,7 +24,7 @@ class SMS extends Message
         return ['to' => $this->to, 'message' => $this->message];
     }
 
-    public function send(string $url, array $params):bool
+    public function send(string $url, string $port, array $params):bool
     {
         $cURLConnection = curl_init();
 
@@ -32,6 +32,7 @@ class SMS extends Message
 
         curl_setopt($cURLConnection, CURLOPT_URL, "{$url}?{$url_params}");
         curl_setopt($cURLConnection, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($cURLConnection, CURLOPT_PORT, $port);
 
         $response = curl_exec($cURLConnection);
         curl_close($cURLConnection);

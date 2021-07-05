@@ -11,7 +11,7 @@ class SMS extends Message
     public function __construct(string $to, string $message)
     {
         $this->to = $to;
-        $this->message = urlencode($message);
+        $this->message = $message;
     }
 
     public function getUrlParams()
